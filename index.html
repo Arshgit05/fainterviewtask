@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="app.css">
+    <title>Task Manager</title>
+</head>
+<body>
+    <main>
+            <h1>Task Manager</h1>
+                <div class="child">
+                    <p>Enter Task Details:</p>
+                </div>
+                <div class="child">
+                    <input type="text" placeholder="Add Title" required id="newTask_title">
+                    <textarea name="" id="newTask-description" cols="22" rows="5" placeholder="Add Description" required></textarea>
+                    <input type="date" name="" id="newTask-deadline" placeholder="Add Deadline" required>
+                </div>
+                <div>
+                    <input type="submit" id="newTask_submit" onclick="addTask()">
+                </div>
+    </main>
+
+    <section id="in_progress_task">
+        <h3>In-Progress Task</h3>
+        <hr>
+        <table border="1" id="inprogress_task_table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                    <th id="btn_task_completed">Task Completed</th>
+                </tr>
+            </thead>
+            
+        </table>
+    </section>
+
+    <script>
+        var list1 = [];
+        var list2 = [];
+        var list3 = [];
+        var list4 = [];
+
+        var n = 1;
+        var x = 0;
+
+        var btn = document.createElement('input');
+        btn.type = "button";
+        btn.className = "btn";
+        btn.value = entry.email;
+        btn.onclick = (function(entry) {return function() {chooseUser(entry);}})(entry);
+        td.appendChild(btn);
+
+
+        function addTask(){
+            var AddRown = document.getElementById('inprogress_task_table');
+            
+
+            list1[x] = document.getElementById("newTask_title").value;
+            list2[x] = document.getElementById("newTask-description").value;
+            list3[x] = document.getElementById("newTask-deadline").value;
+
+            var NewRow = AddRown.insertRow(n);
+            var cel1 = NewRow.insertCell(0);
+            var cel2 = NewRow.insertCell(1);
+            var cel3 = NewRow.insertCell(2);
+
+            cel1.innerHTML = list1[x];
+            cel2.innerHTML = list2[x];
+            cel3.innerHTML = list3[x];
+
+            n++;
+            x++;
+
+        }
+    </script>
+
+</body>
+</html>
